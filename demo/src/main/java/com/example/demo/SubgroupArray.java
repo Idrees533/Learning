@@ -11,11 +11,8 @@ public class SubgroupArray {
 		
 		reverseArrayKElement(arr,k);
 			printArray(arr);
-				
-			
 		
-		
-	}
+		}
 
 	private static void printArray(int[] arr) {
 		// TODO Auto-generated method stub
@@ -24,7 +21,7 @@ public class SubgroupArray {
 		}
 	}
 
-	private static  void reverseArrayKElement(int[] arr, int k) {
+	private static void reverseArrayKElement(int[] arr, int k) {
 		// TODO Auto-generated method stub
 		
 		for(int i=0;i<arr.length;i++) {

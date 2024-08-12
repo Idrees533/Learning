@@ -1,13 +1,14 @@
-package com.example.demo;
+package com.code.interview.ness;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Employee_GlobalLogic {
+
+
+public class EmployeeList {
 
 	public static void main(String[] args) {
-		
 		List<Employee> employeesList = new ArrayList<>();
 		 
         employeesList.add(new Employee(101, "Glady", "Manager", "Male", 25_00_000));
@@ -18,22 +19,14 @@ public class Employee_GlobalLogic {
         employeesList.add(new Employee(106, "Murekan", "Software Engineer", "Male", 13_00_000));
         employeesList.add(new Employee(107, "Gagy", "Software Engineer", "Male", 15_00_000));
         
+     //find the average salary of each desgination
         
-    //groupby on designation then gender
-        //Group by on multiple properties
-        //{Software Engineer={Male=3, Female=1}, Manager={Female=1, Male=1}, 
-        //Lead Engineer={Female=1}}
-        
-        employeesList.stream().collect(Collectors.groupingBy(Employee::getDesignation,
-        	Collectors.groupingBy(Employee::getGender,Collectors.counting())))
-        .entrySet().stream().forEach(k->System.out.println(k.getKey() +" "+k.getValue()));
-        
-        
-        		
-        
-      List list = employeesList.stream().collect(Collectors.groupingBy(Employee::getDesignation,Collectors
-        		.averagingLong(Employee::getSalary))).entrySet().stream().collect(Collectors.toList());
-        System.out.println(list);
-        
+     List list  = employeesList.stream() 
+        .collect(Collectors.groupingBy(Employee::getDesignation,
+        		Collectors.averagingLong(Employee::getSalary)))
+        .entrySet().stream()
+        .collect(Collectors.toList());
+     
+     System.out.println(list);
 	}
 }
